@@ -163,7 +163,7 @@ void SecondTask(void const* argument)
 	xQueueSend(settingsMessageQ, &settings_val,0);
 	osDelay(150);
 
-	static const int demo_mode = 1;
+	static const int demo_mode = 0;
 	for(;;)
 	{
 		if(demo_mode)
@@ -438,7 +438,7 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 20;
+  hcan1.Init.Prescaler = 5;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;
@@ -505,19 +505,19 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   }
 
   /* Package one */
-  if ((RxHeader.StdId == 0x600) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  if ((RxHeader.StdId == 0x360) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
-	 uint16_t rpm_in = (RxData[0] << 0) | (RxData[1] << 8);
-	 uint8_t tps_in = RxData[2];
-	 uint8_t iat_in = RxData[3];
-	 uint16_t map_in = (RxData[4] << 0) | (RxData[5] << 8);
+	 uint16_t rpm_in = (RxData[0] << 8) | (RxData[1] << 0);
+//	 uint8_t tps_in = RxData[2];
+//	 uint8_t iat_in = RxData[3];
+//	 uint16_t map_in = (RxData[4] << 0) | (RxData[5] << 8);
 
 	 rpm = (int)rpm_in;
-	 map = ((int)map_in*1.0f);
-	 iat = (int)iat_in;
-	 tps = (int)(((float)tps_in)*0.5f);
-	 (void)map;
-	 (void)iat;
+//	 map = ((int)map_in*1.0f);
+//	 iat = (int)iat_in;
+//	 tps = (int)(((float)tps_in)*0.5f);
+//	 (void)map;
+//	 (void)iat;
   }
 
   if ((RxHeader.StdId == 0x602) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
