@@ -7,17 +7,21 @@ static int color_index = 0;
 static int rev_limit = 9000;
 
 static int prev_rpm = 100;
-static int prev_map = 100;
-static int prev_clt = 110;
-static float prev_lambda = 0.77f;
-static float prev_lambda_targ = 0.81f;
+static int prev_max_rpm = 100;
+static int prev_speed = 0;
+static int prev_max_speed = 0;
+static int prev_clt = 0;
+static int prev_max_clt = 0;
+static float prev_lambda = 0.01f;
+static float prev_max_lambda = 0.01f;
 
 static int prev_oil_tmp = 0;
+static int prev_max_oil_tmp = 0;
 static float prev_oil_press = 0;
+static float prev_min_oil_press = 99;
 static int prev_fuel_press = 0;
+static int prev_min_fuel_press = 99;
 static int prev_iat = 0;
-static int prev_egt = 0;
-static int prev_egt_2 = 0;
 static int prev_tps = 0;
 static float prev_batt_v = 0;
 
@@ -141,10 +145,10 @@ void MainView::updateVal(uint8_t* newValue)
 		RPMValue.invalidate();
 	}
 
-	if(values->map != prev_map) {
-		prev_map = values->map;
-		Unicode::snprintf(MAPValueBuffer, MAPVALUE_SIZE, "%d", values->map);
-		MAPValue.invalidate();
+	if(values->max_rpm != prev_max_rpm) {
+		prev_max_rpm = values->max_rpm;
+		Unicode::snprintf(MaxRPMValueBuffer, MAXRPMVALUE_SIZE, "%d", prev_max_rpm);
+		MaxRPMValue.invalidate();
 	}
 
 	if(values->clt != prev_clt) {
@@ -153,28 +157,22 @@ void MainView::updateVal(uint8_t* newValue)
 		CLTValue.invalidate();
 	}
 
+	if(values->max_clt != prev_max_clt) {
+		prev_max_clt = values->max_clt;
+		Unicode::snprintf(MaxCltValueBuffer, MAXCLTVALUE_SIZE, "%d", values->max_clt);
+		MaxCltValue.invalidate();
+	}
+
 	if(values->lambda != prev_lambda) {
 		prev_lambda = values->lambda;
 		Unicode::snprintfFloat(LambdaValueBuffer, LAMBDAVALUE_SIZE, "%.2f",values->lambda);
 		LambdaValue.invalidate();
 	}
 
-	if(values->lambda_trgt != prev_lambda_targ) {
-		prev_lambda_targ = values->lambda_trgt;
-		Unicode::snprintfFloat(TrgtValueBuffer, TRGTVALUE_SIZE, "%.2f",values->lambda_trgt);
-		TrgtValue.invalidate();
-	}
-
-	if(values->oil_press != prev_oil_press) {
-		prev_oil_press = values->oil_press;
-		Unicode::snprintfFloat(OILPressureValueBuffer, OILPRESSUREVALUE_SIZE, "%.1f",values->oil_press);
-		OILPressureValue.invalidate();
-	}
-
-	if(values->fuel_press != prev_fuel_press) {
-		prev_fuel_press = values->fuel_press;
-		Unicode::snprintf(FuelPValueBuffer, FUELPVALUE_SIZE, "%d",values->fuel_press);
-		FuelPValue.invalidate();
+	if(values->max_lambda != prev_max_lambda) {
+		prev_max_lambda = values->max_lambda;
+		Unicode::snprintfFloat(MaxLambdaValueBuffer, MAXLAMBDAVALUE_SIZE, "%.2f",values->max_lambda);
+		MaxLambdaValue.invalidate();
 	}
 
 	if(values->oil_tmp != prev_oil_tmp) {
@@ -183,22 +181,52 @@ void MainView::updateVal(uint8_t* newValue)
 		OILTempValue.invalidate();
 	}
 
+	if(values->max_oil_tmp != prev_max_oil_tmp) {
+		prev_max_oil_tmp = values->max_oil_tmp;
+		Unicode::snprintf(MaxOilTValueBuffer, MAXOILTVALUE_SIZE, "%d",values->max_oil_tmp);
+		MaxOilTValue.invalidate();
+	}
+
+	if(values->oil_press != prev_oil_press) {
+		prev_oil_press = values->oil_press;
+		Unicode::snprintfFloat(OILPressureValueBuffer, OILPRESSUREVALUE_SIZE, "%.1f",values->oil_press);
+		OILPressureValue.invalidate();
+	}
+
+	if(values->min_oil_press != prev_min_oil_press) {
+		prev_min_oil_press = values->min_oil_press;
+		Unicode::snprintfFloat(MinOilPValueBuffer, MINOILPVALUE_SIZE, "%.1f",values->min_oil_press);
+		MinOilPValue.invalidate();
+	}
+
+	if(values->fuel_press != prev_fuel_press) {
+		prev_fuel_press = values->fuel_press;
+		Unicode::snprintf(FuelPValueBuffer, FUELPVALUE_SIZE, "%d",values->fuel_press);
+		FuelPValue.invalidate();
+	}
+
+	if(values->min_fuel_press != prev_min_fuel_press) {
+		prev_min_fuel_press = values->fuel_press;
+		Unicode::snprintf(MinFuelPValueBuffer, MINFUELPVALUE_SIZE, "%d",values->min_fuel_press);
+		MinFuelPValue.invalidate();
+	}
+
+	if(values->speed != prev_speed) {
+		prev_speed = values->speed;
+		Unicode::snprintf(SpeedValueBuffer, SPEEDVALUE_SIZE, "%d",values->speed);
+		SpeedValue.invalidate();
+	}
+
+	if(values->max_speed != prev_max_speed) {
+		prev_max_speed = values->max_speed;
+		Unicode::snprintf(MaxSpeedValueBuffer, MAXSPEEDVALUE_SIZE, "%d",values->max_speed);
+		MaxSpeedValue.invalidate();
+	}
+
 	if(values->iat != prev_iat) {
 		prev_iat = values->iat;
 		Unicode::snprintf(IATValueBuffer, IATVALUE_SIZE, "%d",values->iat);
 		IATValue.invalidate();
-	}
-
-	if(values->egt != prev_egt) {
-		prev_egt = values->egt;
-		Unicode::snprintf(EGTValueBuffer, EGTVALUE_SIZE, "%d",values->egt);
-		EGTValue.invalidate();
-	}
-
-	if(values->egt_2 != prev_egt_2) {
-		prev_egt_2 = values->egt_2;
-		Unicode::snprintf(EGTValue2Buffer, EGTVALUE2_SIZE, "%d",values->egt_2);
-		EGTValue2.invalidate();
 	}
 
 	if(values->tps != prev_tps) {

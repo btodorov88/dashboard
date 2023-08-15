@@ -60,13 +60,13 @@
 ../TouchGFX/gui/include/gui/main_screen/MainView.hpp:11:13:MainView::~MainView()	16	static
 ../TouchGFX/gui/include/gui/main_screen/MainView.hpp:11:13:virtual MainView::~MainView()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:54:22:static touchgfx::colortype touchgfx::Color::getColorFrom24BitRGB(uint8_t, uint8_t, uint8_t)	24	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:24:1:MainView::MainView()	24	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:36:6:virtual void MainView::setupScreen()	16	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:40:6:virtual void MainView::tearDownScreen()	16	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:44:18:touchgfx::colortype getBlackColor()	16	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:49:18:touchgfx::colortype getColorFromRevLimit()	24	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:80:6:void MainView::updateSettings(uint8_t*)	32	static
-../TouchGFX/gui/src/main_screen/MainView.cpp:116:6:void MainView::updateVal(uint8_t*)	32	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:28:1:MainView::MainView()	24	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:40:6:virtual void MainView::setupScreen()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:44:6:virtual void MainView::tearDownScreen()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:48:18:touchgfx::colortype getBlackColor()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:53:18:touchgfx::colortype getColorFromRevLimit()	24	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:84:6:void MainView::updateSettings(uint8_t*)	32	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:120:6:void MainView::updateVal(uint8_t*)	32	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:63:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:63:7:virtual touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:46:7:touchgfx::Line::~Line()	16	static

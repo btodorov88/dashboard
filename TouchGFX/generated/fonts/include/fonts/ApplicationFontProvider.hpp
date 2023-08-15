@@ -20,7 +20,7 @@ struct Typography
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0;        // Asap_Bold_18_4bpp
+    static const touchgfx::FontId DEFAULT = 0;        // Asap_Bold_14_4bpp
     static const touchgfx::FontId RPMTEXT = 1;        // Asap_Bold_40_4bpp
     static const touchgfx::FontId VALUES = 2;         // Asap_Bold_30_4bpp
     static const touchgfx::FontId LAMBDA = 2;         // Asap_Bold_30_4bpp

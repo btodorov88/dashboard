@@ -5,15 +5,17 @@
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_Asap_Bold_12_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE =
 {
-    {     0, 0x0031,   6,   9,   9,   0,   6,   0,   0, 0x00 },
-    {    27, 0x0032,   6,   9,   9,   0,   6,   0,   0, 0x00 },
-    {    54, 0x0033,   6,   9,   9,   0,   6,   0,   0, 0x00 },
-    {    81, 0x0034,   7,   9,   9,   0,   6,   0,   0, 0x00 },
-    {   117, 0x0035,   6,   9,   9,   0,   6,   0,   0, 0x00 },
-    {   144, 0x0036,   6,   9,   9,   0,   6,   0,   0, 0x00 },
-    {   171, 0x0037,   6,   9,   9,   0,   6,   0,   0, 0x00 },
-    {   198, 0x0038,   7,   9,   9,   0,   6,   0,   0, 0x00 },
-    {   234, 0x003F,   6,   9,   9,   0,   5,   0,   0, 0x00 }
+    {     0, 0x0020,   0,   0,   0,   0,   3,   0,   0, 0x00 },
+    {     0, 0x0030,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {    27, 0x0031,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {    54, 0x0032,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {    81, 0x0033,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {   108, 0x0034,   7,   9,   9,   0,   6,   0,   0, 0x00 },
+    {   144, 0x0035,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {   171, 0x0036,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {   198, 0x0037,   6,   9,   9,   0,   6,   0,   0, 0x00 },
+    {   225, 0x0038,   7,   9,   9,   0,   6,   0,   0, 0x00 },
+    {   261, 0x003F,   6,   9,   9,   0,   5,   0,   0, 0x00 }
 };
 
 // Asap_Bold_12_4bpp
@@ -28,6 +30,6 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp();
 
 touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp()
 {
-    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 9, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 11, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
     return Asap_Bold_12_4bpp;
 }

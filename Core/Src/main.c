@@ -138,15 +138,23 @@ void StartDefaultTask(void const * argument);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-static int rpm = 4600;
+static int rpm = 0;
+static int max_rpm = 0;
 static int map = 100;
-static int clt = 110;
-static float lambda = 0.77f;
+static int clt = 0;
+static int max_clt = 0;
+static float lambda = 0.0f;
+static float max_lambda = 0.0f;
 static float lambda_targ = 0.81f;
 
+static int speed = 0;
+static int max_speed = 0;
 static int oil_tmp = 0;
+static int max_oil_tmp = 0;
 static float oil_press = 0;
+static float min_oil_press = 99;
 static int fuel_press = 0;
+static int min_fuel_press = 99;
 static int iat = 0;
 static int egt = 0;
 static int egt_2 = 0;
@@ -183,7 +191,7 @@ void SecondTask(void const* argument)
 			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
 		}
 
-		display_values dispVals = {rpm, clt, map, lambda, lambda_targ, oil_tmp, oil_press, fuel_press, iat, egt, egt_2, tps, batt_v};
+		display_values dispVals = {rpm, max_rpm, clt, max_clt, speed, max_speed, lambda, max_lambda, oil_tmp, max_oil_tmp, oil_press, min_oil_press, fuel_press, min_fuel_press, iat, tps, batt_v};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -508,43 +516,57 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   if ((RxHeader.StdId == 0x360) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
 	 uint16_t rpm_in = (RxData[0] << 8) | (RxData[1] << 0);
-//	 uint8_t tps_in = RxData[2];
-//	 uint8_t iat_in = RxData[3];
-//	 uint16_t map_in = (RxData[4] << 0) | (RxData[5] << 8);
+	 uint16_t tps_in = (RxData[4] << 8) | (RxData[5] << 0);
 
 	 rpm = (int)rpm_in;
-//	 map = ((int)map_in*1.0f);
-//	 iat = (int)iat_in;
-//	 tps = (int)(((float)tps_in)*0.5f);
-//	 (void)map;
-//	 (void)iat;
+	 if(rpm > max_rpm) {
+		 max_rpm = rpm;
+	 }
+	 tps = (int)tps_in * 0.1;
   }
 
-  if ((RxHeader.StdId == 0x602) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  if ((RxHeader.StdId == 0x370) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
-	 uint8_t oil_tmp_in = RxData[3];
-	 uint8_t oil_press_in = RxData[4];
-	 uint16_t clt_in = (RxData[6] << 0) | (RxData[7] << 8);
+	 uint16_t speed_in = (RxData[0] << 8) | (RxData[1] << 0);
 
-	 oil_tmp = ((int)oil_tmp_in) * 1;
-	 oil_press = ((int)oil_press_in) * 0.0625f;
-	 clt = ((int)clt_in) * 1;
+	 speed = (int)speed_in * 0.1;
+	 if(speed > max_speed) {
+		 max_speed = speed;
+	 }
   }
 
-  if ((RxHeader.StdId == 0x603) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  if ((RxHeader.StdId == 0x3E0) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
-	 uint8_t lambda_in = RxData[2];
-	 uint16_t egt_1_in = (RxData[4] << 0) | (RxData[5] << 8);
-	 uint16_t egt_2_in = (RxData[6] << 0) | (RxData[7] << 8);
-	 lambda = ((float)lambda_in)*0.0078125f;
-	 egt = (int)egt_1_in;
-	 egt_2 = (int)egt_2_in;
+	 uint16_t clt_in = (RxData[0] << 8) | (RxData[1] << 0);
+	 uint16_t iat_in = (RxData[2] << 8) | (RxData[3] << 0);
+	 uint16_t oil_tmp_in = (RxData[6] << 8) | (RxData[7] << 0);
+
+	 clt = ((int)clt_in - 2731) * 0.1;
+	 if(clt > max_clt){
+		 max_clt = clt;
+	 }
+
+	 iat = ((int)iat_in - 2731) * 0.1;
+
+//	 oil_tmp = ((int)oil_tmp_in - 2731) * 0.1;
+//	 if(oil_tmp > max_oil_tmp){
+//		 max_oil_tmp = oil_tmp;
+//	 }
+  }
+
+  if ((RxHeader.StdId == 0x368) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  {
+	 uint16_t lambda_in = (RxData[0] << 8) | (RxData[1] << 0);
+	 lambda = ((float)lambda_in)*0.001f;
+	 if(lambda > max_lambda){
+		 max_lambda = lambda;
+	 }
    }
 
-  if ((RxHeader.StdId == 0x604) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  if ((RxHeader.StdId == 0x372) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
-	 uint16_t batt_in = (RxData[2] << 0) | (RxData[3] << 8);
-	 float battery_voltage = ((float)batt_in)*0.027f;
+	 uint16_t batt_in = (RxData[0] << 8) | (RxData[1] << 0);
+	 float battery_voltage = ((float)batt_in)*0.1f;
 	 batt_v = battery_voltage;
 	 (void)batt_v;
   }

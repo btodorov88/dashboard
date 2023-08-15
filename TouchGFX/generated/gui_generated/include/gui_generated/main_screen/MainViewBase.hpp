@@ -32,12 +32,11 @@ protected:
      * Member Declarations
      */
     touchgfx::Box backgroundBox;
-    touchgfx::TextArea KpaDescriptor;
     touchgfx::TextArea CltDecsriptor;
     touchgfx::TextArea LambdaDescriptor;
     touchgfx::TextArea TrgtDescriptor;
     touchgfx::TextAreaWithOneWildcard LambdaValue;
-    touchgfx::TextAreaWithOneWildcard TrgtValue;
+    touchgfx::TextAreaWithOneWildcard SpeedValue;
     touchgfx::Image backgroundImage;
     touchgfx::TextAreaWithOneWildcard rpm1;
     touchgfx::TextAreaWithOneWildcard rpm2;
@@ -50,9 +49,7 @@ protected:
     touchgfx::Line line11;
     touchgfx::PainterRGB888 line11Painter;
     touchgfx::TextArea IATDescriptor;
-    touchgfx::TextArea EGTDescriptor;
     touchgfx::TextAreaWithOneWildcard IATValue;
-    touchgfx::TextAreaWithOneWildcard EGTValue;
     touchgfx::TextArea IATDescriptor_1;
     touchgfx::TextArea ECTDescriptor_1;
     touchgfx::TextAreaWithOneWildcard OILTempValue;
@@ -68,20 +65,24 @@ protected:
     touchgfx::TextAreaWithOneWildcard RPMValue;
     touchgfx::TextArea CltValue_1_1;
     touchgfx::TextAreaWithOneWildcard CLTValue;
-    touchgfx::TextAreaWithOneWildcard MAPValue;
-    touchgfx::TextAreaWithOneWildcard EGTValue2;
-    touchgfx::TextArea EGT2Descriptor;
     touchgfx::TextAreaWithOneWildcard FuelPValue;
     touchgfx::TextArea FuelPDescriptor;
     touchgfx::TextAreaWithOneWildcard TpsNumberValue;
+    touchgfx::TextAreaWithOneWildcard MinFuelPValue;
+    touchgfx::TextAreaWithOneWildcard MinOilPValue;
+    touchgfx::TextAreaWithOneWildcard MaxOilTValue;
+    touchgfx::TextAreaWithOneWildcard MaxCltValue;
+    touchgfx::TextAreaWithOneWildcard MaxRPMValue;
+    touchgfx::TextAreaWithOneWildcard MaxLambdaValue;
+    touchgfx::TextAreaWithOneWildcard MaxSpeedValue;
 
     /*
      * Wildcard Buffers
      */
     static const uint16_t LAMBDAVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar LambdaValueBuffer[LAMBDAVALUE_SIZE];
-    static const uint16_t TRGTVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar TrgtValueBuffer[TRGTVALUE_SIZE];
+    static const uint16_t SPEEDVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar SpeedValueBuffer[SPEEDVALUE_SIZE];
     static const uint16_t RPM1_SIZE = 2;
     touchgfx::Unicode::UnicodeChar rpm1Buffer[RPM1_SIZE];
     static const uint16_t RPM2_SIZE = 2;
@@ -100,8 +101,6 @@ protected:
     touchgfx::Unicode::UnicodeChar rpm8Buffer[RPM8_SIZE];
     static const uint16_t IATVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar IATValueBuffer[IATVALUE_SIZE];
-    static const uint16_t EGTVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar EGTValueBuffer[EGTVALUE_SIZE];
     static const uint16_t OILTEMPVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar OILTempValueBuffer[OILTEMPVALUE_SIZE];
     static const uint16_t OILPRESSUREVALUE_SIZE = 5;
@@ -112,14 +111,24 @@ protected:
     touchgfx::Unicode::UnicodeChar RPMValueBuffer[RPMVALUE_SIZE];
     static const uint16_t CLTVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar CLTValueBuffer[CLTVALUE_SIZE];
-    static const uint16_t MAPVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar MAPValueBuffer[MAPVALUE_SIZE];
-    static const uint16_t EGTVALUE2_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar EGTValue2Buffer[EGTVALUE2_SIZE];
     static const uint16_t FUELPVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar FuelPValueBuffer[FUELPVALUE_SIZE];
     static const uint16_t TPSNUMBERVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar TpsNumberValueBuffer[TPSNUMBERVALUE_SIZE];
+    static const uint16_t MINFUELPVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MinFuelPValueBuffer[MINFUELPVALUE_SIZE];
+    static const uint16_t MINOILPVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MinOilPValueBuffer[MINOILPVALUE_SIZE];
+    static const uint16_t MAXOILTVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MaxOilTValueBuffer[MAXOILTVALUE_SIZE];
+    static const uint16_t MAXCLTVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MaxCltValueBuffer[MAXCLTVALUE_SIZE];
+    static const uint16_t MAXRPMVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MaxRPMValueBuffer[MAXRPMVALUE_SIZE];
+    static const uint16_t MAXLAMBDAVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MaxLambdaValueBuffer[MAXLAMBDAVALUE_SIZE];
+    static const uint16_t MAXSPEEDVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MaxSpeedValueBuffer[MAXSPEEDVALUE_SIZE];
 
 private:
 

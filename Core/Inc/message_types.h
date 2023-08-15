@@ -7,16 +7,20 @@ extern "C" {
 
 typedef struct {
    int    rpm;
+   int    max_rpm;
    int    clt;
-   int    map;
+   int    max_clt;
+   int    speed;
+   int    max_speed;
    float  lambda;
-   float  lambda_trgt;
+   float  max_lambda;
    int    oil_tmp;
-   float    oil_press;
+   int    max_oil_tmp;
+   float  oil_press;
+   float  min_oil_press;
    int    fuel_press;
+   int    min_fuel_press;
    int    iat;
-   int    egt;
-   int    egt_2;
    int	  tps;
    float	  batt_v;
 } display_values;
