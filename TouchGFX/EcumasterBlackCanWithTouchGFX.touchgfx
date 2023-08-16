@@ -57,7 +57,7 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Name": "LambdaDescriptor",
-            "X": 207,
+            "X": 223,
             "Y": 139,
             "Width": 38,
             "Height": 17,
@@ -103,7 +103,7 @@
             "AutoSize": false,
             "LineSpacing": 0,
             "Wildcard1": {
-              "TextId": "SingleUseId10",
+              "TextId": "SingleUseId90",
               "UseBuffer": true,
               "BufferSize": 5
             },
@@ -424,7 +424,7 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Name": "IATDescriptor",
-            "X": 134,
+            "X": 132,
             "Y": 127,
             "Width": 20,
             "Height": 17,
@@ -452,7 +452,7 @@
               "BufferSize": 5
             },
             "Name": "IATValue",
-            "X": 116,
+            "X": 114,
             "Y": 86,
             "Width": 60,
             "Height": 42,
@@ -1023,34 +1023,6 @@
             "Moveable": false
           },
           {
-            "TextId": "SingleUseId86",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 185,
-              "Green": 184,
-              "Blue": 184
-            },
-            "Alpha": 255,
-            "AutoSize": false,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId87",
-              "UseBuffer": true,
-              "BufferSize": 5
-            },
-            "Name": "MaxLambdaValue",
-            "X": 243,
-            "Y": 139,
-            "Width": 43,
-            "Height": 20,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
             "TextId": "SingleUseId88",
             "TextRotation": "0",
             "Color": {
@@ -1097,10 +1069,6 @@
       },
       {
         "TextEntryId": "SingleUseId9",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId10",
         "IsResource": false
       },
       {
@@ -1308,19 +1276,15 @@
         "IsResource": false
       },
       {
-        "TextEntryId": "SingleUseId86",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId87",
-        "IsResource": false
-      },
-      {
         "TextEntryId": "SingleUseId88",
         "IsResource": false
       },
       {
         "TextEntryId": "SingleUseId89",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId90",
         "IsResource": false
       }
     ],

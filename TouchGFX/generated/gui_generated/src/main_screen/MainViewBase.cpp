@@ -19,7 +19,7 @@ MainViewBase::MainViewBase()
     CltDecsriptor.setLinespacing(0);
     CltDecsriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID41));
 
-    LambdaDescriptor.setXY(207, 139);
+    LambdaDescriptor.setXY(223, 139);
     LambdaDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
     LambdaDescriptor.setLinespacing(0);
     LambdaDescriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID33));
@@ -32,7 +32,7 @@ MainViewBase::MainViewBase()
     LambdaValue.setPosition(187, 77, 114, 62);
     LambdaValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     LambdaValue.setLinespacing(0);
-    Unicode::snprintf(LambdaValueBuffer, LAMBDAVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID10).getText());
+    Unicode::snprintf(LambdaValueBuffer, LAMBDAVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID90).getText());
     LambdaValue.setWildcard(LambdaValueBuffer);
     LambdaValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID9));
 
@@ -110,12 +110,12 @@ MainViewBase::MainViewBase()
     line11.setLineWidth(2);
     line11.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
 
-    IATDescriptor.setXY(134, 127);
+    IATDescriptor.setXY(132, 127);
     IATDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
     IATDescriptor.setLinespacing(0);
     IATDescriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID30));
 
-    IATValue.setPosition(116, 86, 60, 42);
+    IATValue.setPosition(114, 86, 60, 42);
     IATValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     IATValue.setLinespacing(0);
     Unicode::snprintf(IATValueBuffer, IATVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID23).getText());
@@ -263,13 +263,6 @@ MainViewBase::MainViewBase()
     MaxRPMValue.setWildcard(MaxRPMValueBuffer);
     MaxRPMValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID84));
 
-    MaxLambdaValue.setPosition(243, 139, 43, 20);
-    MaxLambdaValue.setColor(touchgfx::Color::getColorFrom24BitRGB(185, 184, 184));
-    MaxLambdaValue.setLinespacing(0);
-    Unicode::snprintf(MaxLambdaValueBuffer, MAXLAMBDAVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID87).getText());
-    MaxLambdaValue.setWildcard(MaxLambdaValueBuffer);
-    MaxLambdaValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID86));
-
     MaxSpeedValue.setPosition(61, 127, 43, 20);
     MaxSpeedValue.setColor(touchgfx::Color::getColorFrom24BitRGB(185, 184, 184));
     MaxSpeedValue.setLinespacing(0);
@@ -316,7 +309,6 @@ MainViewBase::MainViewBase()
     add(MaxOilTValue);
     add(MaxCltValue);
     add(MaxRPMValue);
-    add(MaxLambdaValue);
     add(MaxSpeedValue);
 }
 

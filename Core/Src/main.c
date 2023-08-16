@@ -144,7 +144,6 @@ static int map = 100;
 static int clt = 0;
 static int max_clt = 0;
 static float lambda = 0.0f;
-static float max_lambda = 0.0f;
 static float lambda_targ = 0.81f;
 
 static int speed = 0;
@@ -191,7 +190,7 @@ void SecondTask(void const* argument)
 			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
 		}
 
-		display_values dispVals = {rpm, max_rpm, clt, max_clt, speed, max_speed, lambda, max_lambda, oil_tmp, max_oil_tmp, oil_press, min_oil_press, fuel_press, min_fuel_press, iat, tps, batt_v};
+		display_values dispVals = {rpm, max_rpm, clt, max_clt, speed, max_speed, lambda, oil_tmp, max_oil_tmp, oil_press, min_oil_press, fuel_press, min_fuel_press, iat, tps, batt_v};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -558,9 +557,6 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   {
 	 uint16_t lambda_in = (RxData[0] << 8) | (RxData[1] << 0);
 	 lambda = ((float)lambda_in)*0.001f;
-	 if(lambda > max_lambda){
-		 max_lambda = lambda;
-	 }
    }
 
   if ((RxHeader.StdId == 0x372) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))

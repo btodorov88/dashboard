@@ -13,7 +13,6 @@ typedef struct {
    int    speed;
    int    max_speed;
    float  lambda;
-   float  max_lambda;
    int    oil_tmp;
    int    max_oil_tmp;
    float  oil_press;

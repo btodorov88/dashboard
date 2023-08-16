@@ -73,7 +73,6 @@ protected:
     touchgfx::TextAreaWithOneWildcard MaxOilTValue;
     touchgfx::TextAreaWithOneWildcard MaxCltValue;
     touchgfx::TextAreaWithOneWildcard MaxRPMValue;
-    touchgfx::TextAreaWithOneWildcard MaxLambdaValue;
     touchgfx::TextAreaWithOneWildcard MaxSpeedValue;
 
     /*
@@ -125,8 +124,6 @@ protected:
     touchgfx::Unicode::UnicodeChar MaxCltValueBuffer[MAXCLTVALUE_SIZE];
     static const uint16_t MAXRPMVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar MaxRPMValueBuffer[MAXRPMVALUE_SIZE];
-    static const uint16_t MAXLAMBDAVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar MaxLambdaValueBuffer[MAXLAMBDAVALUE_SIZE];
     static const uint16_t MAXSPEEDVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar MaxSpeedValueBuffer[MAXSPEEDVALUE_SIZE];
 

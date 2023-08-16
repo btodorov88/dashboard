@@ -13,7 +13,6 @@ static int prev_max_speed = 0;
 static int prev_clt = 0;
 static int prev_max_clt = 0;
 static float prev_lambda = 0.01f;
-static float prev_max_lambda = 0.01f;
 
 static int prev_oil_tmp = 0;
 static int prev_max_oil_tmp = 0;
@@ -167,12 +166,6 @@ void MainView::updateVal(uint8_t* newValue)
 		prev_lambda = values->lambda;
 		Unicode::snprintfFloat(LambdaValueBuffer, LAMBDAVALUE_SIZE, "%.2f",values->lambda);
 		LambdaValue.invalidate();
-	}
-
-	if(values->max_lambda != prev_max_lambda) {
-		prev_max_lambda = values->max_lambda;
-		Unicode::snprintfFloat(MaxLambdaValueBuffer, MAXLAMBDAVALUE_SIZE, "%.2f",values->max_lambda);
-		MaxLambdaValue.invalidate();
 	}
 
 	if(values->oil_tmp != prev_oil_tmp) {
