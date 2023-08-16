@@ -157,7 +157,7 @@ MainViewBase::MainViewBase()
     TPSProgress.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
     TPSProgress.setBackground(touchgfx::Bitmap(BITMAP_BLUE_PROGRESSINDICATORS_BG_SMALL_PROGRESS_INDICATOR_BG_SQUARE_0_DEGREES_ID));
     TPSProgress.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    TPSProgress.setValue(60);
+    TPSProgress.setValue(0);
 
     line10.setPosition(14, 258, 180, 10);
     line10Painter.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));

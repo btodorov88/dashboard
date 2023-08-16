@@ -153,12 +153,20 @@ void MainView::updateVal(uint8_t* newValue)
 	if(values->clt != prev_clt) {
 		prev_clt = values->clt;
 		Unicode::snprintf(CLTValueBuffer, CLTVALUE_SIZE, "%d", values->clt);
+		if(values->clt >= 100){
+			CLTValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255,0,0));
+		} else {
+			CLTValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255,255,255));
+		}
 		CLTValue.invalidate();
 	}
 
 	if(values->max_clt != prev_max_clt) {
 		prev_max_clt = values->max_clt;
 		Unicode::snprintf(MaxCltValueBuffer, MAXCLTVALUE_SIZE, "%d", values->max_clt);
+		if(values->max_clt >= 100){
+			MaxCltValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255,0,0));
+		}
 		MaxCltValue.invalidate();
 	}
 
