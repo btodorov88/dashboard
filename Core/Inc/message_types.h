@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 #ifndef __MESSAGE_TYPES_H
 #define __MESSAGE_TYPES_H
 
@@ -16,12 +18,15 @@ typedef struct {
    int    oil_tmp;
    int    max_oil_tmp;
    float  oil_press;
-   float  min_oil_press;
-   int    fuel_press;
-   int    min_fuel_press;
+   int    fuel_tmp;
+   float    fuel_press;
+   float    min_fuel_press;
    int    iat;
    int	  tps;
-   float	  batt_v;
+   float  batt_v;
+   bool   bat_indicator;
+   bool   oil_indicator;
+   bool   mil_indicator;
 } display_values;
 
 typedef struct {

@@ -17,12 +17,16 @@ static float prev_lambda = 0.01f;
 static int prev_oil_tmp = 0;
 static int prev_max_oil_tmp = 0;
 static float prev_oil_press = 0;
-static float prev_min_oil_press = 99;
-static int prev_fuel_press = 0;
-static int prev_min_fuel_press = 99;
+static int prev_fuel_tmp = 0;
+static float prev_fuel_press = 0;
+static float prev_min_fuel_press = 0;
 static int prev_iat = 0;
 static int prev_tps = 0;
 static float prev_batt_v = 0;
+
+static bool prev_mil_indicator = true;
+static bool prev_oil_indicator = true;
+static bool prev_bat_indicator = true;
 
 MainView::MainView()
 {
@@ -194,21 +198,21 @@ void MainView::updateVal(uint8_t* newValue)
 		OILPressureValue.invalidate();
 	}
 
-	if(values->min_oil_press != prev_min_oil_press) {
-		prev_min_oil_press = values->min_oil_press;
-		Unicode::snprintfFloat(MinOilPValueBuffer, MINOILPVALUE_SIZE, "%.1f",values->min_oil_press);
-		MinOilPValue.invalidate();
+	if(values->fuel_tmp != prev_fuel_tmp) {
+		prev_fuel_tmp = values->fuel_tmp;
+		Unicode::snprintf(FuelTValueBuffer, FUELTVALUE_SIZE, "%d",values->fuel_tmp);
+		FuelTValue.invalidate();
 	}
 
 	if(values->fuel_press != prev_fuel_press) {
 		prev_fuel_press = values->fuel_press;
-		Unicode::snprintf(FuelPValueBuffer, FUELPVALUE_SIZE, "%d",values->fuel_press);
+		Unicode::snprintfFloat(FuelPValueBuffer, FUELPVALUE_SIZE, "%.1f",values->fuel_press);
 		FuelPValue.invalidate();
 	}
 
 	if(values->min_fuel_press != prev_min_fuel_press) {
-		prev_min_fuel_press = values->fuel_press;
-		Unicode::snprintf(MinFuelPValueBuffer, MINFUELPVALUE_SIZE, "%d",values->min_fuel_press);
+		prev_min_fuel_press = values->min_fuel_press;
+		Unicode::snprintfFloat(MinFuelPValueBuffer, MINFUELPVALUE_SIZE, "%.1f",values->min_fuel_press);
 		MinFuelPValue.invalidate();
 	}
 
@@ -241,6 +245,29 @@ void MainView::updateVal(uint8_t* newValue)
 	if(values->batt_v != prev_batt_v) {
 		prev_batt_v = values->batt_v;
 		Unicode::snprintfFloat(BatteryVoltageBuffer, BATTERYVOLTAGE_SIZE, "%.2f",values->batt_v);
+		if(values->batt_v < 13){
+			BatteryVoltage.setColor(touchgfx::Color::getColorFrom24BitRGB(255,0,0));
+		} else {
+			BatteryVoltage.setColor(touchgfx::Color::getColorFrom24BitRGB(255,255,255));
+		}
 		BatteryVoltage.invalidate();
+	}
+
+	if(values->mil_indicator != prev_mil_indicator) {
+		prev_mil_indicator = values->mil_indicator;
+		MilIndicator.setVisible(values->mil_indicator);
+		MilIndicator.invalidate();
+	}
+
+	if(values->oil_indicator != prev_oil_indicator) {
+		prev_oil_indicator = values->oil_indicator;
+		OilIndicator.setVisible(values->oil_indicator);
+		OilIndicator.invalidate();
+	}
+
+	if(values->bat_indicator != prev_bat_indicator) {
+		prev_bat_indicator = values->bat_indicator;
+		BatIndicator.setVisible(values->bat_indicator);
+		BatIndicator.invalidate();
 	}
 }

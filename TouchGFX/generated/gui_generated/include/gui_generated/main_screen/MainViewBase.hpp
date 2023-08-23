@@ -69,11 +69,15 @@ protected:
     touchgfx::TextArea FuelPDescriptor;
     touchgfx::TextAreaWithOneWildcard TpsNumberValue;
     touchgfx::TextAreaWithOneWildcard MinFuelPValue;
-    touchgfx::TextAreaWithOneWildcard MinOilPValue;
     touchgfx::TextAreaWithOneWildcard MaxOilTValue;
     touchgfx::TextAreaWithOneWildcard MaxCltValue;
     touchgfx::TextAreaWithOneWildcard MaxRPMValue;
     touchgfx::TextAreaWithOneWildcard MaxSpeedValue;
+    touchgfx::TextAreaWithOneWildcard FuelTValue;
+    touchgfx::TextArea FuelTDescriptor;
+    touchgfx::TextArea BatIndicator;
+    touchgfx::TextArea MilIndicator;
+    touchgfx::TextArea OilIndicator;
 
     /*
      * Wildcard Buffers
@@ -116,8 +120,6 @@ protected:
     touchgfx::Unicode::UnicodeChar TpsNumberValueBuffer[TPSNUMBERVALUE_SIZE];
     static const uint16_t MINFUELPVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar MinFuelPValueBuffer[MINFUELPVALUE_SIZE];
-    static const uint16_t MINOILPVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar MinOilPValueBuffer[MINOILPVALUE_SIZE];
     static const uint16_t MAXOILTVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar MaxOilTValueBuffer[MAXOILTVALUE_SIZE];
     static const uint16_t MAXCLTVALUE_SIZE = 5;
@@ -126,6 +128,8 @@ protected:
     touchgfx::Unicode::UnicodeChar MaxRPMValueBuffer[MAXRPMVALUE_SIZE];
     static const uint16_t MAXSPEEDVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar MaxSpeedValueBuffer[MAXSPEEDVALUE_SIZE];
+    static const uint16_t FUELTVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar FuelTValueBuffer[FUELTVALUE_SIZE];
 
 private:
 

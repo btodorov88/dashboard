@@ -476,7 +476,7 @@
             "LineSpacing": 0,
             "Name": "IATDescriptor_1",
             "X": 325,
-            "Y": 126,
+            "Y": 128,
             "Width": 32,
             "Height": 17,
             "Type": "TextArea",
@@ -498,8 +498,8 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Name": "ECTDescriptor_1",
-            "X": 401,
-            "Y": 126,
+            "X": 417,
+            "Y": 129,
             "Width": 32,
             "Height": 17,
             "Type": "TextArea",
@@ -820,8 +820,8 @@
               "BufferSize": 5
             },
             "Name": "FuelPValue",
-            "X": 397,
-            "Y": 157,
+            "X": 400,
+            "Y": 156,
             "Width": 68,
             "Height": 42,
             "Type": "TextArea",
@@ -844,7 +844,7 @@
             "LineSpacing": 0,
             "Name": "FuelPDescriptor",
             "X": 397,
-            "Y": 198,
+            "Y": 199,
             "Width": 43,
             "Height": 17,
             "Type": "TextArea",
@@ -899,38 +899,10 @@
               "BufferSize": 5
             },
             "Name": "MinFuelPValue",
-            "X": 430,
-            "Y": 198,
+            "X": 432,
+            "Y": 199,
             "Width": 43,
             "Height": 19,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId78",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 185,
-              "Green": 184,
-              "Blue": 184
-            },
-            "Alpha": 255,
-            "AutoSize": false,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId79",
-              "UseBuffer": true,
-              "BufferSize": 5
-            },
-            "Name": "MinOilPValue",
-            "X": 430,
-            "Y": 126,
-            "Width": 43,
-            "Height": 20,
             "Type": "TextArea",
             "Visible": true,
             "Draggable": false,
@@ -956,7 +928,7 @@
             },
             "Name": "MaxOilTValue",
             "X": 353,
-            "Y": 126,
+            "Y": 128,
             "Width": 43,
             "Height": 20,
             "Type": "TextArea",
@@ -1043,6 +1015,126 @@
             "Y": 127,
             "Width": 43,
             "Height": 20,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId91",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId92",
+              "UseBuffer": true,
+              "BufferSize": 5
+            },
+            "Name": "FuelTValue",
+            "X": 320,
+            "Y": 156,
+            "Width": 68,
+            "Height": 42,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId93",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 220,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "FuelTDescriptor",
+            "X": 330,
+            "Y": 199,
+            "Width": 42,
+            "Height": 17,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId94",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 3,
+              "Blue": 3
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "BatIndicator",
+            "X": 235,
+            "Y": -1,
+            "Width": 52,
+            "Height": 35,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId95",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "MilIndicator",
+            "X": 124,
+            "Y": -1,
+            "Width": 48,
+            "Height": 35,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId96",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "OilIndicator",
+            "X": 181,
+            "Y": -1,
+            "Width": 45,
+            "Height": 35,
             "Type": "TextArea",
             "Visible": true,
             "Draggable": false,
@@ -1244,14 +1336,6 @@
         "IsResource": false
       },
       {
-        "TextEntryId": "SingleUseId78",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId79",
-        "IsResource": false
-      },
-      {
         "TextEntryId": "SingleUseId80",
         "IsResource": false
       },
@@ -1285,6 +1369,30 @@
       },
       {
         "TextEntryId": "SingleUseId90",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId91",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId92",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId93",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId94",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId95",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId96",
         "IsResource": false
       }
     ],
