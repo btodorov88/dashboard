@@ -5,6 +5,8 @@ KEEP extern const uint8_t unicodes_Asap_Bold_14_4bpp_0[] FONT_GLYPH_LOCATION_FLA
 {
     // Unicode: [0x0020, space]
     // (Has no glyph data)
+    // Unicode: [0x002D, hyphen]
+    0x94, 0x99, 0x00, 0xF8, 0xFF, 0x01,
     // Unicode: [0x002E, period]
     0x52, 0x01, 0xFA, 0x06, 0xF9, 0x05,
     // Unicode: [0x0030, zero]

@@ -152,6 +152,7 @@ static int max_speed = 0;
 static int oil_tmp = 0;
 static int max_oil_tmp = 0;
 static float oil_press = 0;
+static float min_oil_press = 9.9f;
 static int fuel_tmp;
 static float fuel_press = 0;
 static float min_fuel_press = 9.9f;
@@ -170,7 +171,7 @@ extern xQueueHandle settingsMessageQ;
 void SecondTask(void const* argument)
 {
 
-	settings_message settings_val = {7000, 1, 2, 3, 4, 5, 6, 7, 8, 0};
+	settings_message settings_val = {7500, 1, 2, 3, 4, 5, 6, 7, 8, 0};
 	xQueueSend(settingsMessageQ, &settings_val,0);
 	osDelay(150);
 
@@ -194,7 +195,7 @@ void SecondTask(void const* argument)
 			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
 		}
 
-		display_values dispVals = {rpm, max_rpm, clt, max_clt, speed, max_speed, lambda, oil_tmp, max_oil_tmp, oil_press, fuel_tmp, fuel_press, min_fuel_press, iat, tps, batt_v, bat_indicator, oil_indicator, mil_indicator};
+		display_values dispVals = {rpm, max_rpm, clt, max_clt, speed, max_speed, lambda, oil_tmp, max_oil_tmp, oil_press, min_oil_press, fuel_tmp, fuel_press, min_fuel_press, iat, tps, batt_v, bat_indicator, oil_indicator, mil_indicator};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -538,6 +539,10 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
 	 if(rpm > 700 && fuel_press < min_fuel_press){
 		 min_fuel_press = fuel_press;
+	 }
+
+	 if(rpm > 2000 && oil_press < min_oil_press){
+		 min_oil_press = oil_press;
 	 }
   }
 

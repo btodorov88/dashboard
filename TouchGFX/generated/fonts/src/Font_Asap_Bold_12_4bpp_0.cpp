@@ -3,8 +3,6 @@
 FONT_GLYPH_LOCATION_FLASH_PRAGMA
 KEEP extern const uint8_t unicodes_Asap_Bold_12_4bpp_0[] FONT_GLYPH_LOCATION_FLASH_ATTRIBUTE =
 {
-    // Unicode: [0x0020, space]
-    // (Has no glyph data)
     // Unicode: [0x002D, hyphen]
     0x21, 0x02, 0xF9, 0x7F, 0x42, 0x24,
     // Unicode: [0x0030, zero]

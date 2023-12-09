@@ -17,6 +17,7 @@ static float prev_lambda = 0.01f;
 static int prev_oil_tmp = 0;
 static int prev_max_oil_tmp = 0;
 static float prev_oil_press = 0;
+static float prev_min_oil_press = 0;
 static int prev_fuel_tmp = 0;
 static float prev_fuel_press = 0;
 static float prev_min_fuel_press = 0;
@@ -198,6 +199,15 @@ void MainView::updateVal(uint8_t* newValue)
 		OILPressureValue.invalidate();
 	}
 
+	if(values->min_oil_press != prev_min_oil_press) {
+		prev_min_oil_press = values->min_oil_press;
+		Unicode::snprintfFloat(MinOilPValueBuffer, MINOILPVALUE_SIZE, "%.1f",values->min_oil_press);
+		if(values->min_oil_press < 3){
+			MinOilPValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255,0,0));
+		}
+		MinOilPValue.invalidate();
+	}
+
 	if(values->fuel_tmp != prev_fuel_tmp) {
 		prev_fuel_tmp = values->fuel_tmp;
 		Unicode::snprintf(FuelTValueBuffer, FUELTVALUE_SIZE, "%d",values->fuel_tmp);
@@ -213,6 +223,9 @@ void MainView::updateVal(uint8_t* newValue)
 	if(values->min_fuel_press != prev_min_fuel_press) {
 		prev_min_fuel_press = values->min_fuel_press;
 		Unicode::snprintfFloat(MinFuelPValueBuffer, MINFUELPVALUE_SIZE, "%.1f",values->min_fuel_press);
+		if(values->min_fuel_press < 3){
+			MinFuelPValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255,0,0));
+		}
 		MinFuelPValue.invalidate();
 	}
 

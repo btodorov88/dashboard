@@ -78,6 +78,7 @@ protected:
     touchgfx::TextArea BatIndicator;
     touchgfx::TextArea MilIndicator;
     touchgfx::TextArea OilIndicator;
+    touchgfx::TextAreaWithOneWildcard MinOilPValue;
 
     /*
      * Wildcard Buffers
@@ -130,6 +131,8 @@ protected:
     touchgfx::Unicode::UnicodeChar MaxSpeedValueBuffer[MAXSPEEDVALUE_SIZE];
     static const uint16_t FUELTVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar FuelTValueBuffer[FUELTVALUE_SIZE];
+    static const uint16_t MINOILPVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar MinOilPValueBuffer[MINOILPVALUE_SIZE];
 
 private:
 

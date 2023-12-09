@@ -18,9 +18,10 @@ typedef struct {
    int    oil_tmp;
    int    max_oil_tmp;
    float  oil_press;
+   float  min_oil_press;
    int    fuel_tmp;
-   float    fuel_press;
-   float    min_fuel_press;
+   float  fuel_press;
+   float  min_fuel_press;
    int    iat;
    int	  tps;
    float  batt_v;

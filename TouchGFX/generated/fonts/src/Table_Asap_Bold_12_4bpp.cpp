@@ -5,7 +5,6 @@
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_Asap_Bold_12_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE =
 {
-    {     0, 0x0020,   0,   0,   0,   0,   3,   0,   0, 0x00 },
     {     0, 0x002D,   4,   3,   5,   0,   4,   0,   0, 0x00 },
     {     6, 0x0030,   6,   9,   9,   0,   6,   0,   0, 0x00 },
     {    33, 0x0031,   6,   9,   9,   0,   6,   0,   0, 0x00 },
@@ -32,6 +31,6 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp();
 
 touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp()
 {
-    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 13, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 12, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
     return Asap_Bold_12_4bpp;
 }
