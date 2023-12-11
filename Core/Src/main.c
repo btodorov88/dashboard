@@ -171,7 +171,7 @@ extern xQueueHandle settingsMessageQ;
 void SecondTask(void const* argument)
 {
 
-	settings_message settings_val = {7500, 1, 2, 3, 4, 5, 6, 7, 8, 0};
+	settings_message settings_val = {7350, 1, 2, 3, 4, 5, 6, 7, 8, 0};
 	xQueueSend(settingsMessageQ, &settings_val,0);
 	osDelay(150);
 
@@ -541,7 +541,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 		 min_fuel_press = fuel_press;
 	 }
 
-	 if(rpm > 2000 && oil_press < min_oil_press){
+	 if(rpm > 2500 && oil_press < min_oil_press){
 		 min_oil_press = oil_press;
 	 }
   }
